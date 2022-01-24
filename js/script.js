@@ -32,13 +32,15 @@ const numbers = [];
 const guessedNumbers = [];
 
 generateNumbersArray(0, 10, 5, numbers);
+console.log(numbers);
 
-/* const guess = setInterval(() => {
-	while (guessedNumbers.length = 5) {
+const guess = setInterval(() => {
+	while (guessedNumbers.length < 5) {
 		const number = parseInt(prompt('Type a number.', '5'));
-		if (!guessedNumbers.includes(number)) {
-			guessedNumbers.push(number);
-		} else if (guessedNumbers.includes(number)) alert("Please don't enter the same number twice.");
-		else alert('Invalid entry.')
+		if (isNaN(number)) alert('Invalid entry.');
+		else if (guessedNumbers.includes(number)) alert("Please don't enter the same number twice.");
+		else if (!guessedNumbers.includes(number)) guessedNumbers.push(number);
 	}
-}, 3000); */
+}, 3000);
+// TODO l'array delle risposte non viene stampato
+console.log(guessedNumbers);
