@@ -18,8 +18,6 @@ const randomNumber = (min, max) => {
 	return Math.floor(Math.random() * (max - min) + 1) + min;
 };
 
-console.log(randomNumber(0, 10));
-
 const generateNumbersArray = (min, max, total, arr) => {
 	while (arr.length < total) {
 		const number = Math.floor(Math.random() * (max - min) + 1) + min;;
@@ -31,16 +29,18 @@ const generateNumbersArray = (min, max, total, arr) => {
 const numbers = [];
 const guessedNumbers = [];
 
-generateNumbersArray(0, 10, 5, numbers);
+generateNumbersArray(0, 10, 2, numbers);
 console.log(numbers);
 
-const guess = setInterval(() => {
-	while (guessedNumbers.length < 5) {
-		const number = parseInt(prompt('Type a number.', '5'));
+const guess = setTimeout(() => {
+	while (guessedNumbers.length < 2) {
+		const number = parseInt(prompt('Type a number.', '2'));
 		if (isNaN(number)) alert('Invalid entry.');
 		else if (guessedNumbers.includes(number)) alert("Please don't enter the same number twice.");
 		else if (!guessedNumbers.includes(number)) guessedNumbers.push(number);
 	}
+	if (guessedNumbers.length === 2) console.log('Your numbers are: ' + guessedNumbers);
+
+	/* 	if (guessedNumbers.includes(...numbers)) alert('WIN');
+		else alert('LOSE'); */ //! Non funziona
 }, 3000);
-// TODO l'array delle risposte non viene stampato
-console.log(guessedNumbers);
