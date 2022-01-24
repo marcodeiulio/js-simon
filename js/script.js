@@ -28,19 +28,24 @@ const generateNumbersArray = (min, max, total, arr) => {
 // #Program
 const numbers = [];
 const guessedNumbers = [];
+let checks = 0;
 
-generateNumbersArray(0, 10, 2, numbers);
+generateNumbersArray(0, 10, 5, numbers);
 console.log(numbers);
 
 const guess = setTimeout(() => {
-	while (guessedNumbers.length < 2) {
-		const number = parseInt(prompt('Type a number.', '2'));
+	while (guessedNumbers.length < 5) {
+		const number = parseInt(prompt('Type a number.', '5'));
 		if (isNaN(number)) alert('Invalid entry.');
 		else if (guessedNumbers.includes(number)) alert("Please don't enter the same number twice.");
 		else if (!guessedNumbers.includes(number)) guessedNumbers.push(number);
 	}
-	if (guessedNumbers.length === 2) console.log('Your numbers are: ' + guessedNumbers);
+	if (guessedNumbers.length === 5) console.log('Your numbers are: ' + guessedNumbers);
 
-	/* 	if (guessedNumbers.includes(...numbers)) alert('WIN');
-		else alert('LOSE'); */ //! Non funziona
+
+	for (let i = 0; i < 5; i++) {
+		if (numbers.includes(guessedNumbers[i])) checks++;
+	}
+
+	(checks === 5) ? alert('You won!') : alert('You lost!');
 }, 3000);
