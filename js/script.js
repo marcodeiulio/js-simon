@@ -15,18 +15,30 @@ controllare che l'utente non inserisca 2 volte lo stesso numero
 
 // #Functions
 const randomNumber = (min, max) => {
-	return Math.floor(Math.random() * max - min + 1) + min;
+	return Math.floor(Math.random() * (max - min) + 1) + min;
 };
 
+console.log(randomNumber(0, 10));
+
 const generateNumbersArray = (min, max, total, arr) => {
-	for (let i = 0; arr.length < total; i++) {
-		const number = Math.floor(Math.random() * max - min + 1) + min;;
+	while (arr.length < total) {
+		const number = Math.floor(Math.random() * (max - min) + 1) + min;;
 		if (!arr.includes(number)) arr.push(number);
 	};
-}
+};
 
 // #Program
 const numbers = [];
+const guessedNumbers = [];
 
 generateNumbersArray(0, 10, 5, numbers);
-console.log(numbers);
+
+/* const guess = setInterval(() => {
+	while (guessedNumbers.length = 5) {
+		const number = parseInt(prompt('Type a number.', '5'));
+		if (!guessedNumbers.includes(number)) {
+			guessedNumbers.push(number);
+		} else if (guessedNumbers.includes(number)) alert("Please don't enter the same number twice.");
+		else alert('Invalid entry.')
+	}
+}, 3000); */
