@@ -7,10 +7,6 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 #Bonus:
 controllare che i numeri casuali siano diversi tra loro
 controllare che l'utente non inserisca 2 volte lo stesso numero
-#Consigli del giorno:
-* Pensate prima in italiano.
-* Dividete in piccoli problemi la consegna.
-* Individuate gli elementi di cui avete bisogno per realizzare il programma.
 */
 
 // #Functions
@@ -47,5 +43,7 @@ const guess = setTimeout(() => {
 		if (numbers.includes(guessedNumbers[i])) checks++;
 	}
 
-	(checks === 5) ? alert('You won!') : alert('You lost!');
+	const result = `You guessed ${checks} numbers out of 5.`
+
+	return (checks === 5) ? alert(`You won! ${result}`) : alert(`You lost! ${result}`);
 }, 3000);
