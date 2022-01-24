@@ -13,3 +13,20 @@ controllare che l'utente non inserisca 2 volte lo stesso numero
 * Individuate gli elementi di cui avete bisogno per realizzare il programma.
 */
 
+// #Functions
+const randomNumber = (min, max) => {
+	return Math.floor(Math.random() * max - min + 1) + min;
+};
+
+const generateNumbersArray = (min, max, total, arr) => {
+	for (let i = 0; arr.length < total; i++) {
+		const number = Math.floor(Math.random() * max - min + 1) + min;;
+		if (!arr.includes(number)) arr.push(number);
+	};
+}
+
+// #Program
+const numbers = [];
+
+generateNumbersArray(0, 10, 5, numbers);
+console.log(numbers);
