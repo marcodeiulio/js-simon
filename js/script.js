@@ -46,4 +46,4 @@ const guess = setTimeout(() => {
 	const result = `You guessed ${checks} numbers out of 5.`
 
 	return (checks === 5) ? alert(`You won! ${result}`) : alert(`You lost! ${result}`);
-}, 3000);
+}, 5000);
