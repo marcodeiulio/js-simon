@@ -27,7 +27,7 @@ const guessedNumbers = [];
 let checks = 0;
 
 generateNumbersArray(0, 10, 5, numbers);
-console.log(numbers);
+alert(`Try to remember this numbers: ${numbers}`);
 
 const guess = setTimeout(() => {
 	while (guessedNumbers.length < 5) {
